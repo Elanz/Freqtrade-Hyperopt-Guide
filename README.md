@@ -30,4 +30,6 @@ That will get me to a good place buy signal wise.  After doing all that I'm usua
 
 At this point my backtesting should be showing me strong buy and sell signal performance, hopefully better than my current live property set or I've just wasted a lot of time. From here I will sometimes run a 1000 epoch roi optimization pass but usually I prefer to tweak that one by hand instead as I feel like optimizing it is just playing games with past results.  Generally I'd prefer things be sold based on my signals and not roi, I look at roi as sort of a fallback to prevent the bot from holding onto a dead asset for too long.
 
+One quick note on the HyperOptLoss choices, you have many and I use them all.  Also get familiar with hyperopt-list and hyperopt-show.  I always hunt through the epoch results for my own ideal result, usually I'm looking for a higher average profit per trade, or higher number of trades or some balance of those two. When I run my big 2000 epoch passes I've been relying on Calmar.  For spot optimization of specific signals I prefer the SortinoDaily although I don't know why, it just seems to do better for specific cases.
+
 I hope you enjoyed reading this, remember I'm just a rando from the internet and you should never listen to my advice.  I only wrote this so that smarter people could correct me.
