@@ -33,3 +33,12 @@ At this point my backtesting should be showing me strong buy and sell signal per
 One quick note on the HyperOptLoss choices, you have many and I use them all.  Also get familiar with hyperopt-list and hyperopt-show.  I always hunt through the epoch results for my own ideal result, usually I'm looking for a higher average profit per trade, or higher number of trades or some balance of those two. When I run my big 2000 epoch passes I've been relying on Calmar.  For spot optimization of specific signals I prefer the SortinoDaily although I don't know why, it just seems to do better for specific cases.
 
 I hope you enjoyed reading this, remember I'm just a rando from the internet and you should never listen to my advice.  I only wrote this so that smarter people could correct me.
+
+Troubleshooting, or problems I've encountered and maybe solved?
+Q) When I opt my drawdown is always --, what does this mean, why is it happening?
+A) This means that epoch/run made no bad trades.  This may sound great but really it isn't realistic, something is probably wrong.  Either your stoploss is too tight so you never lose money (which conversely means you likely are not holding long enough to make money either) or your properties have overfit to the specific data you are opting on. 
+Fix?) Manually expand your stoploss/roi to get a little more risk into your pool, or run on a wider set of data
+
+Q) I ran this for 2000 epochs on a signal and nothing changed, the 1st result was still the best result
+A) Your signal is either not working or already overfit for the data you are running on. 
+Fix?) Manually mess with that signals parameters. If you think the max for this parameter is 1.0 change it to 10.0 and see if anything happens.  If nothing happens this signal probably isn't working at all so go debug it. If something happens then re-opt on a wider data range or reconsider your max/min optimization settings for this signal -- market conditions may have changed enough to invalidate your old values.
